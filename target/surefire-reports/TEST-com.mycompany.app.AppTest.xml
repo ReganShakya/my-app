@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.mycompany.app.AppTest" time="0.022" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.mycompany.app.AppTest" time="0.03" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -14,10 +14,10 @@
     <property name="user.timezone" value=""/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="os.name" value="Linux"/>
-    <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/home/regan/codebin/learningJenkins/my-app/target/surefire/surefirebooter4155510616907443749.jar /home/regan/codebin/learningJenkins/my-app/target/surefire 2021-05-05T14-51-25_612-jvmRun1 surefire2197692509752813783tmp surefire_03459598724865653843tmp"/>
+    <property name="sun.java.command" value="/home/regan/codebin/learningJenkins/my-app/target/surefire/surefirebooter8881574980312209007.jar /home/regan/codebin/learningJenkins/my-app/target/surefire 2021-05-06T11-01-54_909-jvmRun1 surefire6521896823615406905tmp surefire_06741911093380247012tmp"/>
     <property name="surefire.test.class.path" value="/home/regan/codebin/learningJenkins/my-app/target/test-classes:/home/regan/codebin/learningJenkins/my-app/target/classes:/home/regan/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/regan/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/regan"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/regan/codebin/learningJenkins/my-app/target/surefire/surefirebooter4155510616907443749.jar"/>
+    <property name="surefire.real.class.path" value="/home/regan/codebin/learningJenkins/my-app/target/surefire/surefirebooter8881574980312209007.jar"/>
     <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-8-openjdk-amd64/jre/classes"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="1.8.0_292-8u292-b10-0ubuntu1~20.04-b10"/>
@@ -41,6 +41,7 @@
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="maven.ext.class.path" value="/snap/netbeans/45/netbeans/java/maven-nblib/netbeans-eventspy.jar"/>
     <property name="localRepository" value="/home/regan/.m2/repository"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="java.io.tmpdir" value="/tmp"/>
