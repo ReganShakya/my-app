@@ -8,7 +8,7 @@ pipeline {
         stage('---clean---') {
             steps {
                 sh "mvn clean"
-                echo 'Bleaning version ${NEW_VERSION}
+                echo 'Bleaning version ${NEW_VERSION}'
             }
         }
         stage('---Test---') {
