@@ -11,6 +11,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'echo "This is test"'
+	sh 'echo "Test is completed"'
       }
     }
 
