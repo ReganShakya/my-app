@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        echo 'Pulling................' + env.BRANCH_NAME
+        echo 'Pulling...' + env.BRANCH_NAME
         sh 'echo "Building project"'
         emailext(subject: 'Build Status', body: 'This is build status of thecurrent project', attachLog: true, from: 'reganshakya@gmail.com', to: 'regan@moco.com.np')
       }
