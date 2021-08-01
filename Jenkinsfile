@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
+        sh "echo 'Development branch created'"
         echo 'Pulling...' + env.BRANCH_NAME
 
         script {
