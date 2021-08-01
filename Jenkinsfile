@@ -1,5 +1,9 @@
 pipeline {
   agent any
+    tools {
+        maven 'Maven 3.3.9'
+        jdk 'jdk8'
+    }
   stages {
     stage('build') {
       steps {
@@ -14,9 +18,9 @@ pipeline {
             if (env.BRANCH_NAME != 'master') {
                 sh 'echo "Not pushed to master."'
                 echo 'Pulling...' + env.BRANCH_NAME
-                sh 'mvn clean install'
-                sh 'java -jar my-app-1.0-SNAPSHOT.jar'
-                //archiveArtifacts 'target/test-1.0-SNAPSHOT-jar-with-dependencies.jar'
+                sh 'mvn -B -DskipTests clean package'
+                //sh 'cd target'
+                //sh 'java -jar my-app-1.0-SNAPSHOT.jar'
             }
         }
       }
