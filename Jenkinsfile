@@ -1,12 +1,14 @@
 pipeline {
-  environment {
-     BRANCH_NAME = "${GIT_BRANCH.split("/")[1]}"
-  }
   agent any
   stages {
     stage('build') {
       steps {
-        sh 'echo "Pulling..." + env.BRANCH_NAME
+        GIT_BRANCH_LOCAL = sh (
+            script: "echo $Branch | sed -e 's|origin/||g'",
+            returnStdout: true
+        ).trim()
+        echo "Git branch: ${GIT_BRANCH_LOCAL}"
+        sh 'echo "Pulling..." + GIT_BRANCH_LOCAL 
         sh 'echo "Building project"'
         emailext(subject: 'Build Status', body: 'This is build status of thecurrent project', attachLog: true, from: 'reganshakya@gmail.com', to: 'regan@moco.com.np')
       }
