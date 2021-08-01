@@ -3,13 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        def GIT_BRANCH_LOCAL = sh (
-            script: "echo $Branch | sed -e 's|origin/||g'",
-            returnStdout: true
-        ).trim()
-        echo "Git branch: ${GIT_BRANCH_LOCAL}"
-        sh 'echo "Pulling..."'
-        sh 'GIT_BRANCH_LOCAL'
+        echo 'Pulling................................................' + env.BRANCH_NAME
         sh 'echo "Building project"'
         emailext(subject: 'Build Status', body: 'This is build status of thecurrent project', attachLog: true, from: 'reganshakya@gmail.com', to: 'regan@moco.com.np')
       }
