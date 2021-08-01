@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        GIT_BRANCH_LOCAL = sh (
+        def GIT_BRANCH_LOCAL = sh (
             script: "echo $Branch | sed -e 's|origin/||g'",
             returnStdout: true
         ).trim()
