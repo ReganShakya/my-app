@@ -8,7 +8,7 @@ pipeline {
             returnStdout: true
         ).trim()
         echo "Git branch: ${GIT_BRANCH_LOCAL}"
-        sh 'echo "Pulling..." + GIT_BRANCH_LOCAL 
+        sh 'echo "Pulling..." + GIT_BRANCH_LOCAL
         sh 'echo "Building project"'
         emailext(subject: 'Build Status', body: 'This is build status of thecurrent project', attachLog: true, from: 'reganshakya@gmail.com', to: 'regan@moco.com.np')
       }
