@@ -1,23 +1,20 @@
 pipeline {
   agent any
   stages {
-    stage("Build") {
-        parallel {
-            stage("master") {
-                when { expression { env.BRANCH_NAME == "master" } }
-                steps {
-                    sh "echo 'Pulling...' + env.BRANCH_NAME"
-                }
+    stage('build') {
+      steps {
+        echo 'Pulling...' + env.BRANCH_NAME
+        if(env.BRANCH_NAME == 'master'){
+            sh 'echo "Building project"'
+            emailext(subject: 'Build Status', body: 'This is build status of thecurrent project', attachLog: true, from: 'reganshakya@gmail.com', to: 'regan@moco.com.np')
             }
-            stage("PRE") {
-                when { env.BRANCH_NAME != "master" } }
-                steps {
-                    sh "Not pushed in master branch"
-                    sh "echo 'Pulling...' + env.BRANCH_NAME"
-                }
-            }
+        if(env.BRANCH_NAME != 'master'){
+            sh 'echo "Not pushed to master."'
+            echo 'Pulling...' + env.BRANCH_NAME
+        }
         }
     }
+
     stage('Test') {
       steps {
         sh 'echo "This is updated test again"'
@@ -33,3 +30,4 @@ pipeline {
     }
 
   }
+}
