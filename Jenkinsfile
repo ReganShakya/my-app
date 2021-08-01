@@ -10,13 +10,16 @@ pipeline {
             if (env.BRANCH_NAME == 'master') {
                 sh 'echo "Building project"'
                 emailext(subject: 'Build Status', body: 'This is build status of thecurrent project', attachLog: true, from: 'reganshakya@gmail.com', to: 'regan@moco.com.np')
-                }
+            }
             if (env.BRANCH_NAME != 'master') {
                 sh 'echo "Not pushed to master."'
                 echo 'Pulling...' + env.BRANCH_NAME
-                }
+                sh 'mvn clean install'
+                sh 'java -jar my-app-1.0-SNAPSHOT.jar'
+                //archiveArtifacts 'target/test-1.0-SNAPSHOT-jar-with-dependencies.jar'
             }
         }
+      }
     }
 
     stage('Test') {
