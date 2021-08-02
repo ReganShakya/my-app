@@ -26,7 +26,7 @@ pipeline {
                 sh 'mvn clean install'
 
                 sh 'echo "transfer jar file to deployment server"'
-                //sshCommand remote: remote, command: 'ls demo-mockup'
+                sshCommand remote: remote, command: 'ls /home/predator/Downloads/my-app-server'
                 sshPut remote: remote, from:'target/my-app-1.0-SNAPSHOT.jar', into: '/home/predator/Downloads/my-app-server', override: true
                 //sh 'rm -rf testcase/target'
                 sshCommand remote: remote, command: 'bash /home/predator/Downloads/my-app-server/start.sh'
