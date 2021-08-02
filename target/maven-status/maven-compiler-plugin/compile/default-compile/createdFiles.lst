@@ -1,2 +1,6 @@
-com/mycompany/app/streamAPI/StreamApp.class
+com/mycompany/app/streamAPI/FilterMethod.class
+com/mycompany/app/streamAPI/Operations.class
 com/mycompany/app/App.class
+com/mycompany/app/streamAPI/StreamApp.class
+com/mycompany/app/streamAPI/FlatMap.class
+com/mycompany/app/streamAPI/Map.class

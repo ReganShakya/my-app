@@ -1,2 +1,6 @@
-/home/regan/codebin/learningJenkins/my-app/src/main/java/com/mycompany/app/streamAPI/StreamApp.java
-/home/regan/codebin/learningJenkins/my-app/src/main/java/com/mycompany/app/App.java
+/home/predator/Documents/jenkins working/my-app/src/main/java/com/mycompany/app/streamAPI/Operations.java
+/home/predator/Documents/jenkins working/my-app/src/main/java/com/mycompany/app/App.java
+/home/predator/Documents/jenkins working/my-app/src/main/java/com/mycompany/app/streamAPI/FilterMethod.java
+/home/predator/Documents/jenkins working/my-app/src/main/java/com/mycompany/app/streamAPI/FlatMap.java
+/home/predator/Documents/jenkins working/my-app/src/main/java/com/mycompany/app/streamAPI/Map.java
+/home/predator/Documents/jenkins working/my-app/src/main/java/com/mycompany/app/streamAPI/StreamApp.java
