@@ -22,23 +22,13 @@ pipeline {
         steps {
             sh 'echo "Not pushed to master."'
                 echo 'Pulling...' + env.BRANCH_NAME
-                //sh 'mvn clean install'
+                sh 'mvn clean install'
                 archiveArtifacts 'target/my-app-1.0-SNAPSHOT.jar'
-
-                //sshCommand remote: remote, command: 'for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done'
                 sh 'echo "transfer jar file to deployment server"'
                 sh 'pwd'
                 sshCommand remote: remote, command: 'ls'
                 sshPut remote: remote, from:'target/my-app-1.0-SNAPSHOT.jar', into: '/home/predator/Downloads/my-app-server', override: true
-                //sh 'rm -rf testcase/target'
                 sshCommand remote: remote, command: 'bash /home/predator/Downloads/my-app-server/start.sh'
-                //sh '''
-                //cd testcase
-                //pwd
-                //mvn test "-Dtest=Test.Runner"
-                //'''
-                //archiveArtifacts 'testcase/target/surefire-reports/*html'
-                //sshCommand remote: remote, command: 'bash demo-mockup/stop.sh'
         }
 
         //script {
