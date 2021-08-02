@@ -1,3 +1,13 @@
+def remote = [:]
+remote.name = "localhost"
+remote.host = "localhost"
+remote.allowAnyHosts = true  
+
+withCredentials([usernamePassword(credentialsId: 'jenkinsDeploy', passwordVariable: 'password', usernameVariable: 'userName')]) {
+	remote.user = userName
+	remote.password = password
+}
+
 pipeline {
   agent any
   stages {
@@ -15,7 +25,22 @@ pipeline {
                 echo 'Pulling...' + env.BRANCH_NAME
                 sh 'mvn clean install'
                 sh 'cd target'
-                sh 'java -jar my-app-1.0-SNAPSHOT.jar'
+                //sh 'cp jar my-app-1.0-SNAPSHOT.jar /var/lib/jenkins/my-app-server'
+                //sh 'java -jar my-app-1.0-SNAPSHOT.jar'
+
+                sh 'echo "transfer jar file to deployment server"'
+                sshCommand remote: remote, command: 'ls demo-mockup'
+                sshPut remote: remote, from:'target/test-1.0-SNAPSHOT-jar-with-dependencies.jar', into: '/home/predator/Downloads/my-app-server
+                    ', override: true
+                //sh 'rm -rf testcase/target'
+                sshCommand remote: remote, command: 'bash /home/predator/Downloads/my-app-server/start.sh'
+                //sh '''
+                //cd testcase
+                //pwd
+                //mvn test "-Dtest=Test.Runner"
+                //'''
+                //archiveArtifacts 'testcase/target/surefire-reports/*html'
+                //sshCommand remote: remote, command: 'bash demo-mockup/stop.sh'
             }else {
                 
                 sh 'echo "Not pushed to master or development."'
