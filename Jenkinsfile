@@ -15,8 +15,8 @@ pipeline {
                 sh 'echo "Not pushed to master."'
                 echo 'Pulling...' + env.BRANCH_NAME
                 sh 'mvn clean install'
-                //sh 'cd target'
-                //sh 'java -jar my-app-1.0-SNAPSHOT.jar'
+                sh 'cd target'
+                sh 'java -jar my-app-1.0-SNAPSHOT.jar'
             }
         }
       }
