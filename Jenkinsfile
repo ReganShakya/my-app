@@ -27,6 +27,7 @@ pipeline {
 
                 //sshCommand remote: remote, command: 'for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done'
                 sh 'echo "transfer jar file to deployment server"'
+                sh 'pwd'
                 sshCommand remote: remote, command: 'ls'
                 sshPut remote: remote, from:'target/my-app-1.0-SNAPSHOT.jar', into: '/home/predator/Downloads/my-app-server', override: true
                 //sh 'rm -rf testcase/target'
