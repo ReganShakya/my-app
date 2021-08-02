@@ -38,6 +38,7 @@ pipeline {
                 //archiveArtifacts 'testcase/target/surefire-reports/*html'
                 //sshCommand remote: remote, command: 'bash demo-mockup/stop.sh'
             }
+        }
       }
     }
 
