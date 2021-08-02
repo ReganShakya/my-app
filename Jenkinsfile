@@ -24,9 +24,9 @@ pipeline {
                 sh 'echo "Not pushed to master."'
                 echo 'Pulling...' + env.BRANCH_NAME
                 sh 'mvn clean install'
-
+                archiveArtifacts 'target/test-1.0-SNAPSHOT-jar-with-dependencies.jar'
                 sh 'echo "transfer jar file to deployment server"'
-                sshCommand remote: remote, command: 'ls /home/predator/Downloads/my-app-server'
+                sshCommand remote: remote, command: 'ls'
                 sshPut remote: remote, from:'target/my-app-1.0-SNAPSHOT.jar', into: '/home/predator/Downloads/my-app-server', override: true
                 //sh 'rm -rf testcase/target'
                 sshCommand remote: remote, command: 'bash /home/predator/Downloads/my-app-server/start.sh'
