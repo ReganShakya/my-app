@@ -26,11 +26,11 @@ pipeline {
                 sh 'echo "transfer jar file to deployment server"'
                 sh 'pwd'
                 //sh 'cp target/my-app-1.0-SNAPSHOT.jar /home/predator/Downloads/my-app-server'
-                sh 'bash /home/predator/Downloads/my-app-server/start.sh'
+                //sh 'bash /home/predator/Downloads/my-app-server/start.sh'
 
-                //sshCommand remote: remote, command: 'pwd'
-                //sshPut remote: remote, from:'target/my-app-1.0-SNAPSHOT.jar', into: '/home/predator/Downloads/my-app-server'
-                //sshCommand remote: remote, command: 'bash /home/predator/Downloads/my-app-server/start.sh'
+                sshCommand remote: remote, command: 'pwd'
+                sshPut remote: remote, from:'target/my-app-1.0-SNAPSHOT.jar', into: '/home/predator/Downloads/my-app-server'
+                sshCommand remote: remote, command: 'bash /home/predator/Downloads/my-app-server/start.sh'
         }
       //steps {
 
