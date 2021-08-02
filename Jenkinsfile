@@ -24,7 +24,7 @@ pipeline {
                 sh 'echo "Not pushed to master."'
                 echo 'Pulling...' + env.BRANCH_NAME
                 sh 'mvn clean install'
-                sh 'cd target'
+                //sh 'cd target'
                 //sh 'cp jar my-app-1.0-SNAPSHOT.jar /var/lib/jenkins/my-app-server'
                 //sh 'java -jar my-app-1.0-SNAPSHOT.jar'
 
