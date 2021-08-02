@@ -14,7 +14,7 @@ pipeline {
             if (env.BRANCH_NAME != 'master') {
                 sh 'echo "Not pushed to master."'
                 echo 'Pulling...' + env.BRANCH_NAME
-                sh 'mvn -B -DskipTests clean package'
+                sh 'mvn clean install'
                 //sh 'cd target'
                 //sh 'java -jar my-app-1.0-SNAPSHOT.jar'
             }
