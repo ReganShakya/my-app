@@ -12,14 +12,13 @@ pipeline {
   agent any
   stages {
     stage('build') {
-      steps {
-        sh "echo 'Development branch created'"
-        echo 'Pulling...' + env.BRANCH_NAME
         when {
-            // case insensitive regular expression for truthy values
             expression { env.BRANCH_NAME == 'development' }
         }
         steps {
+
+        sh "echo 'Development branch created'"
+        echo 'Pulling...' + env.BRANCH_NAME
             sh 'echo "Not pushed to master."'
                 echo 'Pulling...' + env.BRANCH_NAME
                 sh 'mvn clean install'
@@ -30,6 +29,7 @@ pipeline {
                 sshPut remote: remote, from:'target/my-app-1.0-SNAPSHOT.jar', into: '/home/predator/Downloads/my-app-server'
                 sshCommand remote: remote, command: 'bash /home/predator/Downloads/my-app-server/start.sh'
         }
+      //steps {
 
         //script {
           //  if (env.BRANCH_NAME == 'master') {
@@ -56,7 +56,7 @@ pipeline {
                 //sshCommand remote: remote, command: 'bash demo-mockup/stop.sh'
            // }
         //}
-      }
+      //}
     }
 
     stage('Test') {
